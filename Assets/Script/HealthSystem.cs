@@ -8,7 +8,7 @@ public class HealthSystem : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] float m_maxHealth = default;   //Healthは秒数。何秒耐えられるかを表す
     [SerializeField] float m_scale = default;   //半径はスケールの1/2
-    float m_health;
+    public float m_health;
     float m_per;
     Vector2 _scale1;
     void Start()

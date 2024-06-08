@@ -6,11 +6,14 @@ TagManager:
   tags:
   - Rain
   - Puddle
+  - Umbrella
+  - Boat
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
