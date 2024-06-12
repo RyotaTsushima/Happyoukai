@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.RuleTile.TilingRuleOutput;
+using TMPro;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -14,11 +15,17 @@ public class HealthSystem : MonoBehaviour
     Vector2 _scale1;
     int _itemnum = 0;
     int _itemnum2 = 0;
+    bool m_gameover = false;
+    GameObject m_gameoverText;
+    GameObject m_healthText;
     void Start()
     {
         _scale1 = transform.localScale* m_scale;
         transform.localScale = _scale1;
         _itemnum = 0;
+        m_gameoverText = GameObject.Find("GameoverText");
+        m_healthText = GameObject.Find("Health");
+        m_health = m_maxHealth;
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -55,10 +62,25 @@ public class HealthSystem : MonoBehaviour
 
     void Update()
     {
+        //ëÃóÕï\é¶
+        m_healthText.GetComponent<TextMeshProUGUI>().text = "Rest Health :"+m_health.ToString("F0");
+
+        //ëÃóÕÇ…âûÇ∂ÇƒëÂÇ´Ç≥ÇïœÇ¶ÇÈ
         if (m_health > 0)
         {
-            m_per=m_health/m_maxHealth;
+            m_per = m_health / m_maxHealth;
             transform.localScale = _scale1 * m_per;
+        }
+
+        //gameoverÇÃèàóù
+        if (m_health <= 0f)
+        {
+            m_gameover = true;
+        }
+
+        if (m_gameover)
+        {
+            m_gameoverText.GetComponent<TextMeshProUGUI>().text = "You melted";
         }
     }
 
