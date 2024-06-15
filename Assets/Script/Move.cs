@@ -10,10 +10,12 @@ public class Move : MonoBehaviour
     [SerializeField] LayerMask m_rayCastLayer = default;
     Rigidbody2D m_rb;
     float _dashRatio;
+    
     // Start is called before the first frame update
     void Start()
     {
         m_rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -39,6 +41,8 @@ public class Move : MonoBehaviour
             Debug.Log("Jump!");
             m_rb.AddForce(Vector2.up * m_jumpPower*10, ForceMode2D.Impulse);
         }
+
+        
     }
 
     bool IsGrounded()
