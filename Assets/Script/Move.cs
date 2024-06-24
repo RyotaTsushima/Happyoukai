@@ -21,19 +21,9 @@ public class Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //ダッシュ
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            _dashRatio=m_dashRatio;
-        }
-        else
-        {
-            _dashRatio = 1;
-        }
-
         //左右移動
         float h = Input.GetAxisRaw("Horizontal");
-        m_rb.AddForce(Vector2.right*h*m_speed*m_dashRatio);
+        m_rb.AddForce(Vector2.right * h * m_speed  );
 
         //ジャンプ処理
         if (Input.GetButtonDown("Jump")&&IsGrounded())
@@ -42,7 +32,15 @@ public class Move : MonoBehaviour
             m_rb.AddForce(Vector2.up * m_jumpPower*10, ForceMode2D.Impulse);
         }
 
-        
+        //向き変更
+        if (h < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        else if (h > 0)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
     }
 
     bool IsGrounded()

@@ -9,6 +9,7 @@ TagManager:
   - Umbrella
   - Boat
   - Ground
+  - Goal
   layers:
   - Default
   - TransparentFX
