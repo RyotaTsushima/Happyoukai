@@ -38,7 +38,9 @@ public class HealthSystem : MonoBehaviour
     public static float m_timer;
     Move _move;
     public static bool _goal;
-
+    bool _haveUmbrella;
+    bool _haveBoat;
+    bool _onPuddle;
 
     private void Awake()  //値の引継ぎ用
     {
@@ -80,27 +82,21 @@ public class HealthSystem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Puddle"&&_itemnum2!=1)
+        if (collision.tag == "Puddle")// && _itemnum2 != 1
         {
+            _onPuddle = true;
             Debug.Log("I fall down to puddle.");
-            m_health = 0f;
         }
 
-        if(collision.tag == "Umbrella")
+        if (collision.tag == "Umbrella")
         {
-            Debug.Log("傘を手に入れた");
-            _itemnum = 1;
-            m_umbrellaImage.color = new Color(255,255,255,255);
-            StartCoroutine(UmbrellamReset());
+            _haveUmbrella = true;
+            
         }
 
         if (collision.tag == "Boat")
         {
-            Debug.Log("船に乗った");
-            _itemnum2 = 1;
-            m_boatImage.color = new Color(255, 255, 255, 255);
-            StartCoroutine(BoatReset());
-            
+            _haveBoat = true;
         }
 
         if (collision.tag == "Rain")
@@ -120,10 +116,34 @@ public class HealthSystem : MonoBehaviour
         {
             _raining = false;
         }
+
+        if (collision.tag == "Puddle")
+        {
+            _onPuddle = false;
+        }
     }
 
     void Update()
-    {
+    { 
+        //アイテム処理
+        if (_haveUmbrella && _itemnum==0)
+        {
+            _haveUmbrella = false;
+            Debug.Log("傘を手に入れた");
+            _itemnum = 1;
+            m_umbrellaImage.color = new Color(255, 255, 255, 255);
+            StartCoroutine(UmbrellamReset());
+        }
+
+        if(_haveBoat && _itemnum2==0) 
+        {
+            _haveBoat = false;
+            Debug.Log("船に乗った");
+            _itemnum2 = 1;
+            m_boatImage.color = new Color(255, 255, 255, 255);
+            StartCoroutine(BoatReset());
+        }
+
         //体力表示
         if(m_healthText != null)
         {
@@ -142,6 +162,11 @@ public class HealthSystem : MonoBehaviour
         if (_raining && _itemnum!=1 && m_health>0) 
         {
             m_health -= Time.deltaTime;
+        }
+
+        if(_onPuddle && _itemnum2!=1)
+        {
+            m_health = 0f;
         }
 
         //タイム表示

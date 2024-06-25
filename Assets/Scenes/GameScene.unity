@@ -360,6 +360,7 @@ Transform:
   - {fileID: 1415477307}
   - {fileID: 1800554545}
   - {fileID: 535750491}
+  - {fileID: 983685670}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &33274455 stripped
@@ -2753,6 +2754,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7079233594316854247, guid: 4632b7da10496b9438529785ae210ef0, type: 3}
   m_PrefabInstance: {fileID: 706014053}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &983685670 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8456929858138466634, guid: bf5b0b55bd2b6094093b7bbfa7336565, type: 3}
+  m_PrefabInstance: {fileID: 1455938457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &988185114 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7079233594316854247, guid: 4632b7da10496b9438529785ae210ef0, type: 3}
@@ -3646,6 +3652,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2506829bde68c90498852448470db951, type: 3}
+--- !u!1001 &1455938457
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 26417672}
+    m_Modifications:
+    - target: {fileID: 5456098088466898123, guid: bf5b0b55bd2b6094093b7bbfa7336565, type: 3}
+      propertyPath: m_Name
+      value: Boat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456929858138466634, guid: bf5b0b55bd2b6094093b7bbfa7336565, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 123.42199
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456929858138466634, guid: bf5b0b55bd2b6094093b7bbfa7336565, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.031959
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456929858138466634, guid: bf5b0b55bd2b6094093b7bbfa7336565, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.17493658
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456929858138466634, guid: bf5b0b55bd2b6094093b7bbfa7336565, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456929858138466634, guid: bf5b0b55bd2b6094093b7bbfa7336565, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456929858138466634, guid: bf5b0b55bd2b6094093b7bbfa7336565, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456929858138466634, guid: bf5b0b55bd2b6094093b7bbfa7336565, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456929858138466634, guid: bf5b0b55bd2b6094093b7bbfa7336565, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456929858138466634, guid: bf5b0b55bd2b6094093b7bbfa7336565, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8456929858138466634, guid: bf5b0b55bd2b6094093b7bbfa7336565, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bf5b0b55bd2b6094093b7bbfa7336565, type: 3}
 --- !u!4 &1461173601 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7079233594316854247, guid: 4632b7da10496b9438529785ae210ef0, type: 3}
@@ -4246,7 +4309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f451991cd19aa084c8ebb70904670e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_speed: 4
+  m_speed: 5
   m_dashRatio: 3
   m_jumpPower: 4
   m_rayCastLayer:
@@ -4264,7 +4327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327505df40a63084995b682236d281d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 50
+  _maxHealth: 30
   m_scale: 0.5
   m_itemTime: 5
   _changeSceneTime: 3
@@ -4290,7 +4353,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 3
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 5
   m_Material: {fileID: 0}
   m_IncludeLayers:
