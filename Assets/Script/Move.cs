@@ -5,11 +5,9 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     [SerializeField] float m_speed = default;
-    [SerializeField] float m_dashRatio = default;
     [SerializeField] float m_jumpPower = default;
     [SerializeField] LayerMask m_rayCastLayer = default;
     Rigidbody2D m_rb;
-    float _dashRatio;
     
     // Start is called before the first frame update
     void Start()
